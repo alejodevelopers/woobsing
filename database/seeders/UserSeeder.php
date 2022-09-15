@@ -3,9 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UserSeeder extends Seeder
 {
@@ -17,9 +18,17 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
+            'name' => 'Talento Humano',
+            'email' => 'auxiliar02@woobsing.com',
+            'password' => bcrypt('Password*'),
+            'remember_token' => Str::random(10),
+        ]);
+
+        User::create([
             'name' => 'Alejandro Castillo',
             'email' => 'alejo.desarrolloweb@gmail.com',
-            'password' => bcrypt('Contr4tado*'),
+            'password' => bcrypt('Password*'),
+            'remember_token' => Str::random(10),
         ]);
     }
 }
